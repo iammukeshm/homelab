@@ -1,0 +1,37 @@
+# Ignore Docker volumes/data
+**/data/
+**/config/
+**/work/
+**/logs/
+**/db/
+**/uploads/
+**/letsencrypt/
+
+# Ignore environment variables
+.env
+.env.*
+
+# Ignore system/editor files
+*.swp
+*.swo
+.DS_Store
+Thumbs.db
+
+# Ignore backup files
+*~
+*.bak
+
+# Ignore docker-compose override files
+docker-compose.override.yml
+
+# Ignore Portainer's internal DB
+portainer_data/
+
+# Ignore speedtest tracker DB (sqlite)
+**/speedtest-tracker/db.sqlite*
+
+# Ignore Nextcloud data (if not using external volume)
+**/nextcloud/data/
+
+# Ignore vaultwarden vault
+**/vaultwarden/data/db.sqlite*
