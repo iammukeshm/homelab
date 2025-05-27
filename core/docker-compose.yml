@@ -1,11 +1,11 @@
 services:
-  glance:
-      container_name: glance
-      image: glanceapp/glance
-      restart: unless-stopped
-      volumes:
-        - ./glance/config:/app/config
-        - ./glance/assets:/app/assets
-      ports:
-        - 8080:8080
-      env_file: .env
+  alpine:
+    container_name: alpine
+    image: alpine
+    command: sleep infinity
+    networks:
+      - core-network
+networks:
+  core-network:
+    name: core-network
+    driver: bridge
