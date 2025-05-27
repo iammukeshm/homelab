@@ -41,24 +41,11 @@
     - size: small
       widgets:
         - type: weather
-          location: Varkala, Kerala
+          location: Varkala
           units: metric # alternatively "imperial"
           hour-format: 12h # alternatively "24h"
           # Optionally hide the location from being displayed in the widget
           # hide-location: true
-
-        - type: markets
-          markets:
-            - symbol: SPY
-              name: S&P 500
-            - symbol: BTC-USD
-              name: Bitcoin
-            - symbol: NVDA
-              name: NVIDIA
-            - symbol: AAPL
-              name: Apple
-            - symbol: MSFT
-              name: Microsoft
 
         - type: releases
           cache: 1d
