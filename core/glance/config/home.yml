@@ -53,7 +53,4 @@
           # read-only token from your Github account settings and use it here to increase the limit.
           # token: ...
           repositories:
-            - glanceapp/glance
-            - go-gitea/gitea
-            - immich-app/immich
-            - syncthing/syncthing
+            - fullstackhero/dotnet-starter-kit
