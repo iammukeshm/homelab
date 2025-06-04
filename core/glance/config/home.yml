@@ -70,6 +70,10 @@
               url: https://plex.jarvs.dev/
               icon: si:plex
               check-url: http://192.168.1.100:32400
+            - title: SpeedTest
+              url: https://speed.jarvs.dev/
+              icon: si:speedtest
+              check-url: http://192.168.1.205:8070
             - title: qBittorrent
               url: https://torrent.venomserver.dev/
               icon: si:qbittorrent
