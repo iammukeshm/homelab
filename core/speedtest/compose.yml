@@ -1,0 +1,25 @@
+services:
+  speedtest:
+    image: lscr.io/linuxserver/speedtest-tracker:latest
+    restart: unless-stopped
+    container_name: speedtest
+    ports:
+        - 8070:80
+        - 8443:443
+    environment:
+        - PUID=1000
+        - PGID=1000
+        - APP_KEY=base64:Wl8hsQyFAGIfKG06eZ6LU6NyfHWnj0LDrxAphCKdRuI=
+        - DB_CONNECTION=sqlite
+        - SPEEDTEST_SCHEDULE=6 */2 * * *
+        - PUBLIC_DASHBOARD=true
+        - DISPLAY_TIMEZONE=Asia/Kolkata
+
+    volumes:
+        - /path/to/data:/config
+        - /path/to-custom-ssl-keys:/config/keys
+    networks:
+      - core-network
+networks:
+  core-network:
+    external: true
