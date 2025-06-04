@@ -4,11 +4,10 @@ services:
       image: glanceapp/glance
       restart: unless-stopped
       volumes:
-        - ./config:/app/config
-        - ./assets:/app/assets
+        - ./config:/app/config/
+        - ./assets:/app/assets/
       ports:
         - 8080:8080
-      env_file: .env
       networks:
         - core-network
 
