@@ -6,6 +6,7 @@ services:
       volumes:
         - ./config:/app/config/
         - ./assets:/app/assets/
+      env_file: .env  
       ports:
         - 8080:8080
       networks:
