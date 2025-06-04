@@ -1,6 +1,5 @@
 # Ignore Docker volumes/data
 **/data/
-**/config/
 **/work/
 **/logs/
 **/db/

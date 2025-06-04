@@ -1,0 +1,89 @@
+- name: Dashboard
+  columns:
+    - size: full
+      widgets:
+        - type: search
+          autofocus: true
+
+        - type: monitor
+          cache: 1m
+          title: Services
+          sites:
+            - title: Proxmox
+              url: https://proxmox.jarvs.dev/
+              check-url: https://192.168.1.10:8006
+              icon: si:proxmox
+              allow-insecure: true
+            - title: Plex
+              url: https://plex.jarvs.dev/
+              icon: si:plex
+              check-url: http://192.168.1.100:32400
+            - title: qBittorrent
+              url: https://torrent.venomserver.dev/
+              icon: si:qbittorrent
+              check-url: http://192.168.1.101
+
+        - type: bookmarks
+          groups:
+            - title: General
+              links:
+                - title: Gmail
+                  url: https://mail.google.com/mail/u/0/
+                - title: Amazon
+                  url: https://www.amazon.com/
+                - title: Github
+                  url: https://github.com/
+            - title: Entertainment
+              links:
+                - title: YouTube
+                  url: https://www.youtube.com/
+                - title: Prime Video
+                  url: https://www.primevideo.com/
+                - title: Disney+
+                  url: https://www.disneyplus.com/
+            - title: Social
+              links:
+                - title: Reddit
+                  url: https://www.reddit.com/
+                - title: Twitter
+                  url: https://twitter.com/
+                - title: Instagram
+                  url: https://www.instagram.com/
+
+        - type: custom-api
+          title: Proxmox-VE Stats
+          cache: 1m
+          url: https://${PROXMOXVE_URL}/api2/json/cluster/resources
+          allow-insecure: true
+          headers:
+            Accept: application/json
+            Authorization: PVEAPIToken=${PROXMOXVE_KEY}
+          template: |
+            <div class="flex flex-column gap-5">
+              <div class="flex justify-between text-center">
+                <div>
+                  {{ $nodes_online := len (.JSON.Array "data.#(type==\"node\")#|#(status==\"online\")#") }}
+                  {{ $nodes_total := len (.JSON.Array "data.#(type==\"node\")#") }}
+                  <div class="color-highlight size-h3">{{ $nodes_online }}/{{ $nodes_total }}</div>
+                  <div class="size-h5 uppercase">Node</div>
+                </div>
+                <div>
+                  {{ $lxc_running := len (.JSON.Array "data.#(type==\"lxc\")#|#(status==\"running\")#|#(template==0)#") }}
+                  {{ $lxc_total := len (.JSON.Array "data.#(type==\"lxc\")#|#(template==0)#") }}
+                  <div class="color-highlight size-h3">{{ $lxc_running }}/{{ $lxc_total }}</div>
+                  <div class="size-h5 uppercase">LXC</div>
+                </div>
+                <div>
+                  {{ $qemu_running := len (.JSON.Array "data.#(type==\"qemu\")#|#(status==\"running\")#|#(template==0)#") }}
+                  {{ $qemu_total := len (.JSON.Array "data.#(type==\"qemu\")#|#(template==0)#") }}
+                  <div class="color-highlight size-h3">{{ $qemu_running }}/{{ $qemu_total }}</div>
+                  <div class="size-h5 uppercase">VM</div>
+                </div>
+                <div>
+                    {{ $storage_available := len (.JSON.Array "data.#(type==\"storage\")#|#(status==\"available\")#") }}
+                    {{ $storage_total := len (.JSON.Array "data.#(type==\"storage\")#") }}
+                    <div class="color-highlight size-h3">{{ $storage_available }}/{{ $storage_total }}</div>
+                    <div class="size-h5 uppercase">Storage</div>
+                </div>
+              </div>
+            </div>
