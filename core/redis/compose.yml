@@ -22,13 +22,16 @@ services:
       - core-network
 
   redisinsight:
-    image: redis/redisinsight:2.46.0
+    image: redis/redisinsight:latest
     container_name: redisinsight
     restart: unless-stopped
+    depends_on:
+      - redis
     ports:
-      - "8001:8001"
+      - "5540:5540"
     volumes:
       - redisinsight-data:/db
+      - ./config/instances.json:/db/config/databases.json:ro
     networks:
       - core-network
 

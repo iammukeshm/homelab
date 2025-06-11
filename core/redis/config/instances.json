@@ -1,0 +1,12 @@
+[
+    {
+        "name": "Local Redis",
+        "connection": {
+            "host": "redis",
+            "port": 6379,
+            "username": "",
+            "password": "YourSuperStrongPasswordHere",
+            "tls": false
+        }
+    }
+]
