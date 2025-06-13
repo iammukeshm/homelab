@@ -1,0 +1,20 @@
+services:
+  uptime-kuma:
+    image: louislam/uptime-kuma:latest
+    container_name: uptime-kuma
+    restart: unless-stopped
+    ports:
+      - "3001:3001"
+    volumes:
+      - uptime-kuma-data:/app/data
+    environment:
+      - TZ=Asia/Kolkata
+    networks:
+      - core-network
+
+volumes:
+  uptime-kuma-data:
+
+networks:
+  core-network:
+    external: true
