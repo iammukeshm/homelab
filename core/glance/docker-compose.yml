@@ -11,6 +11,11 @@ services:
         - 8080:8080
       networks:
         - core-network
+      labels:
+        - "traefik.enable=true"
+        - "traefik.http.routers.glance.rule=Host(`glance.jarvs.dev`)"
+        - "traefik.http.routers.glance.entrypoints=web"
+        - "traefik.http.services.glance.loadbalancer.server.port=8080"
 
 networks:
   core-network:

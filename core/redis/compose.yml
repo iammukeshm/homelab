@@ -18,6 +18,11 @@ services:
       retries: 3
     env_file:
       - .env
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.redis.rule=Host(`redis.jarvs.dev`)"
+      - "traefik.http.routers.redis.entrypoints=web"
+      - "traefik.http.services.redis.loadbalancer.server.port=6379"
     networks:
       - core-network
 
@@ -32,6 +37,11 @@ services:
     volumes:
       - redisinsight-data:/db
       - ./config/instances.json:/db/config/databases.json:ro
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.redisinsight.rule=Host(`redisinsights.jarvs.dev`)"
+      - "traefik.http.routers.redisinsight.entrypoints=web"
+      - "traefik.http.services.redisinsight.loadbalancer.server.port=5540"
     networks:
       - core-network
 
