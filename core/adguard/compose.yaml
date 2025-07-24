@@ -1,0 +1,20 @@
+services:
+  adguard:
+    image: adguard/adguardhome:latest
+    container_name: adguard-home
+    restart: unless-stopped
+    networks:
+      - core-network
+    volumes:
+      - ./data/work:/opt/adguardhome/work
+      - ./data/conf:/opt/adguardhome/conf
+  labels:
+    - "traefik.enable=true"
+    - "traefik.http.routers.adguard.rule=Host(`adguard.jarvs.dev`)"
+    - "traefik.http.routers.adguard.entrypoints=websecure"
+    - "traefik.http.routers.adguard.tls.certresolver=cloudflare"
+    - "traefik.http.services.adguard.loadbalancer.server.port=3000"
+
+networks:
+  core-network:
+    external: true
