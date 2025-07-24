@@ -1,0 +1,11 @@
+services:
+  alpine:
+    container_name: alpine
+    image: alpine
+    command: sleep infinity
+    networks:
+      - media-network
+networks:
+  media-network:
+    name: media-network
+    driver: bridge
