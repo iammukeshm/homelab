@@ -1,0 +1,42 @@
+services:
+  elasticsearch:
+    image: docker.elastic.co/elasticsearch/elasticsearch:7.17.3
+    container_name: tube-archivist-es
+    environment:
+      - discovery.type=single-node
+      - xpack.security.enabled=false
+      - bootstrap.memory_lock=true
+      - "ES_JAVA_OPTS=-Xms1g -Xmx1g"
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - es_data:/usr/share/elasticsearch/data
+    restart: unless-stopped
+
+  redis:
+    image: redis:6
+    container_name: tube-archivist-redis
+    restart: unless-stopped
+
+  tube-archivist:
+    image: bbilly1/tubearchivist
+    container_name: tube-archivist
+    ports:
+      - 8000:8000
+    environment:
+      - HOST_UID=1000
+      - HOST_GID=1000
+      - TA_USERNAME=admin
+      - TA_PASSWORD=admin
+      - ELASTICSEARCH=http://tube-archivist-es:9200
+      - REDIS=redis://tube-archivist-redis:6379
+    volumes:
+      - tube_data:/cache
+      - /mnt/media/youtube:/youtube
+    restart: unless-stopped
+
+volumes:
+  es_data:
+  tube_data:
