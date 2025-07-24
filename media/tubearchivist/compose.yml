@@ -31,7 +31,7 @@ services:
       - HOST_GID=1000
       - TA_USERNAME=admin
       - TA_PASSWORD=admin
-      - ELASTICSEARCH=http://tube-archivist-es:9200
+      - ES_URL=http://tube-archivist-es:9200
       - REDIS=redis://tube-archivist-redis:6379
       - ELASTIC_PASSWORD=changeme
 
