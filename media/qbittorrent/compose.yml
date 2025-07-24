@@ -21,12 +21,8 @@ services:
       timeout: 10s
       retries: 3
     networks:
-      - core-network
-
-volumes:
-  postgres-data:
-  pgadmin-data:
-
+      - media-network
+      
 networks:
   media-network:
     external: true
