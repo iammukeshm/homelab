@@ -1,0 +1,117 @@
+{"Protocol":0,"Id":"e68f9b38cfccce894e5ea25d5ba2206b","Path":"/mnt/media/songs/8K Remastered - Aaj Ki Raat \uFF5C Tamannaah Bhatia \uFF5C Stree 2.mp4","EncoderPath":null,"EncoderProtocol":null,"Type":0,"Container":"mov,mp4,m4a,3gp,3g2,mj2","Size":430796694,"Name":"8K Remastered - Aaj Ki Raat \uFF5C Tamannaah Bhatia \uFF5C Stree 2","IsRemote":false,"ETag":"2dcea68b853c1e837e12584f6f53ebb7","RunTimeTicks":1709220860,"ReadAtNativeFramerate":false,"IgnoreDts":false,"IgnoreIndex":false,"GenPtsInput":false,"SupportsTranscoding":true,"SupportsDirectStream":true,"SupportsDirectPlay":true,"IsInfiniteStream":false,"UseMostCompatibleTranscodingProfile":false,"RequiresOpening":false,"OpenToken":null,"RequiresClosing":false,"LiveStreamId":null,"BufferMs":null,"RequiresLooping":false,"SupportsProbing":true,"VideoType":0,"IsoType":null,"Video3DFormat":null,"MediaStreams":[{"Codec":"vp9","CodecTag":"vp09","Language":"und","ColorRange":null,"ColorSpace":"bt709","ColorTransfer":"bt709","ColorPrimaries":"bt709","DvVersionMajor":null,"DvVersionMinor":null,"DvProfile":null,"DvLevel":null,"RpuPresentFlag":null,"ElPresentFlag":null,"BlPresentFlag":null,"DvBlSignalCompatibilityId":null,"Rotation":null,"Comment":null,"TimeBase":"1/16000","CodecTimeBase":null,"Title":null,"VideoRange":1,"VideoRangeType":1,"VideoDoViTitle":null,"AudioSpatialFormat":0,"LocalizedUndefined":null,"LocalizedDefault":null,"LocalizedForced":null,"LocalizedExternal":null,"LocalizedHearingImpaired":null,"DisplayTitle":"4K VP9 SDR","NalLengthSize":null,"IsInterlaced":false,"IsAVC":false,"ChannelLayout":null,"BitRate":20030054,"BitDepth":8,"RefFrames":1,"PacketLength":null,"Channels":null,"SampleRate":null,"IsDefault":true,"IsForced":false,"IsHearingImpaired":false,"Height":2160,"Width":3840,"AverageFrameRate":60.000233,"RealFrameRate":60,"ReferenceFrameRate":60.000233,"Profile":"Profile 0","Type":1,"AspectRatio":"16:9","Index":0,"Score":null,"IsExternal":false,"DeliveryMethod":null,"DeliveryUrl":null,"IsExternalUrl":null,"IsTextSubtitleStream":false,"SupportsExternalStream":false,"Path":null,"PixelFormat":"yuv420p","Level":-99,"IsAnamorphic":false},{"Codec":"aac","CodecTag":"mp4a","Language":"und","ColorRange":null,"ColorSpace":null,"ColorTransfer":null,"ColorPrimaries":null,"DvVersionMajor":null,"DvVersionMinor":null,"DvProfile":null,"DvLevel":null,"RpuPresentFlag":null,"ElPresentFlag":null,"BlPresentFlag":null,"DvBlSignalCompatibilityId":null,"Rotation":null,"Comment":null,"TimeBase":"1/44100","CodecTimeBase":null,"Title":"ISO Media file produced by Google Inc.","VideoRange":0,"VideoRangeType":0,"VideoDoViTitle":null,"AudioSpatialFormat":0,"LocalizedUndefined":null,"LocalizedDefault":"Default","LocalizedForced":null,"LocalizedExternal":"External","LocalizedHearingImpaired":null,"DisplayTitle":"ISO Media file produced by Google Inc. - AAC - Stereo - Default","NalLengthSize":null,"IsInterlaced":false,"IsAVC":false,"ChannelLayout":"stereo","BitRate":127999,"BitDepth":null,"RefFrames":null,"PacketLength":null,"Channels":2,"SampleRate":44100,"IsDefault":true,"IsForced":false,"IsHearingImpaired":false,"Height":null,"Width":null,"AverageFrameRate":null,"RealFrameRate":null,"ReferenceFrameRate":null,"Profile":"LC","Type":0,"AspectRatio":null,"Index":1,"Score":null,"IsExternal":false,"DeliveryMethod":null,"DeliveryUrl":null,"IsExternalUrl":null,"IsTextSubtitleStream":false,"SupportsExternalStream":false,"Path":null,"PixelFormat":null,"Level":0,"IsAnamorphic":null}],"MediaAttachments":[],"Formats":[],"Bitrate":20163418,"FallbackMaxStreamingBitrate":null,"Timestamp":null,"RequiredHttpHeaders":{},"TranscodingUrl":null,"TranscodingSubProtocol":0,"TranscodingContainer":null,"AnalyzeDurationMs":null,"DefaultAudioStreamIndex":null,"DefaultSubtitleStreamIndex":null,"HasSegments":false}
+
+/usr/lib/jellyfin-ffmpeg/ffmpeg -analyzeduration 200M -probesize 1G -ss 00:01:03.000 -f mov,mp4,m4a,3gp,3g2,mj2 -init_hw_device vaapi=va:/dev/dri/renderD128,driver=iHD -init_hw_device qsv=qs@va -filter_hw_device qs -hwaccel vaapi -hwaccel_output_format vaapi -noautorotate -i file:"/mnt/media/songs/8K Remastered - Aaj Ki Raat ｜ Tamannaah Bhatia ｜ Stree 2.mp4" -noautoscale -map_metadata -1 -map_chapters -1 -threads 0 -map 0:0 -map 0:1 -map -0:s -codec:v:0 h264_qsv -preset veryfast -b:v 6538546 -maxrate 6538546 -bufsize 13077092 -g:v:0 180 -keyint_min:v:0 180 -vf "setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709,scale_vaapi=w=1280:h=720:format=nv12:extra_hw_frames=24,hwmap=derive_device=qsv,format=qsv" -codec:a:0 copy -copyts -avoid_negative_ts disabled -max_muxing_queue_size 2048 -f hls -max_delay 5000000 -hls_time 3 -hls_segment_type mpegts -start_number 21 -hls_segment_filename "/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b%d.ts" -hls_playlist_type vod -hls_list_size 0 -y "/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b.m3u8"
+
+
+ffmpeg version 7.1.1-Jellyfin Copyright (c) 2000-2025 the FFmpeg developers
+  built with gcc 13 (Ubuntu 13.3.0-6ubuntu2~24.04)
+  configuration: --prefix=/usr/lib/jellyfin-ffmpeg --target-os=linux --extra-version=Jellyfin --disable-doc --disable-ffplay --disable-static --disable-libxcb --disable-sdl2 --disable-xlib --enable-lto=auto --enable-gpl --enable-version3 --enable-shared --enable-gmp --enable-gnutls --enable-chromaprint --enable-opencl --enable-libdrm --enable-libxml2 --enable-libass --enable-libfreetype --enable-libfribidi --enable-libfontconfig --enable-libharfbuzz --enable-libbluray --enable-libmp3lame --enable-libopus --enable-libtheora --enable-libvorbis --enable-libopenmpt --enable-libdav1d --enable-libsvtav1 --enable-libwebp --enable-libvpx --enable-libx264 --enable-libx265 --enable-libzvbi --enable-libzimg --enable-libfdk-aac --arch=amd64 --enable-libshaderc --enable-libplacebo --enable-vulkan --enable-vaapi --enable-amf --enable-libvpl --enable-ffnvcodec --enable-cuda --enable-cuda-llvm --enable-cuvid --enable-nvdec --enable-nvenc
+  libavutil      59. 39.100 / 59. 39.100
+  libavcodec     61. 19.101 / 61. 19.101
+  libavformat    61.  7.100 / 61.  7.100
+  libavdevice    61.  3.100 / 61.  3.100
+  libavfilter    10.  4.100 / 10.  4.100
+  libswscale      8.  3.100 /  8.  3.100
+  libswresample   5.  3.100 /  5.  3.100
+  libpostproc    58.  3.100 / 58.  3.100
+libva info: VA-API version 1.22.0
+libva info: Trying to open /usr/lib/jellyfin-ffmpeg/lib/dri/iHD_drv_video.so
+libva info: Found init function __vaDriverInit_1_22
+libva info: va_openDriver() returns 0
+libva info: VA-API version 1.22.0
+libva info: Trying to open /usr/lib/jellyfin-ffmpeg/lib/dri/iHD_drv_video.so
+libva info: Found init function __vaDriverInit_1_22
+libva info: va_openDriver() returns 0
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'file:/mnt/media/songs/8K Remastered - Aaj Ki Raat ｜ Tamannaah Bhatia ｜ Stree 2.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomiso2mp41
+    encoder         : Lavf59.27.100
+  Duration: 00:02:50.92, start: 0.000000, bitrate: 20163 kb/s
+  Stream #0:0[0x1](und): Video: vp9 (Profile 0) (vp09 / 0x39307076), yuv420p(tv, bt709), 3840x2160, 20030 kb/s, 60 fps, 60 tbr, 16k tbn (default)
+      Metadata:
+        handler_name    : ISO Media file produced by Google Inc. Created on: 08/17/2024.
+        vendor_id       : [0][0][0][0]
+  Stream #0:1[0x2](und): Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 127 kb/s (default)
+      Metadata:
+        handler_name    : ISO Media file produced by Google Inc.
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (vp9 (native) -> h264 (h264_qsv))
+  Stream #0:1 -> #0:1 (copy)
+Press [q] to stop, [?] for help
+Output #0, hls, to '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b.m3u8':
+  Metadata:
+    encoder         : Lavf61.7.100
+  Stream #0:0: Video: h264, qsv(tv, bt709, progressive), 1280x720, q=2-31, 6538 kb/s, 60 fps, 90k tbn (default)
+      Metadata:
+        encoder         : Lavc61.19.101 h264_qsv
+      Side data:
+        cpb: bitrate max/min/avg: 6538546/0/6538546 buffer size: 13077092 vbv_delay: N/A
+  Stream #0:1: Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 127 kb/s (default)
+frame=   58 fps=0.0 q=26.0 size=N/A time=00:00:00.00 bitrate=N/A speed=   0x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b21.ts' for writing
+frame=  254 fps=254 q=25.0 size=N/A time=00:00:03.26 bitrate=N/A speed=3.27x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b22.ts' for writing
+frame=  447 fps=298 q=28.0 size=N/A time=00:00:06.48 bitrate=N/A speed=4.32x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b23.ts' for writing
+frame=  637 fps=318 q=32.0 size=N/A time=00:00:09.65 bitrate=N/A speed=4.82x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b24.ts' for writing
+frame=  821 fps=328 q=29.0 size=N/A time=00:00:12.71 bitrate=N/A speed=5.09x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b25.ts' for writing
+frame= 1023 fps=341 q=29.0 size=N/A time=00:00:16.08 bitrate=N/A speed=5.36x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b26.ts' for writing
+frame= 1217 fps=348 q=28.0 size=N/A time=00:00:19.31 bitrate=N/A speed=5.52x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b27.ts' for writing
+frame= 1411 fps=353 q=28.0 size=N/A time=00:00:22.55 bitrate=N/A speed=5.64x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b28.ts' for writing
+frame= 1597 fps=355 q=30.0 size=N/A time=00:00:25.65 bitrate=N/A speed= 5.7x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b29.ts' for writing
+frame= 1792 fps=358 q=26.0 size=N/A time=00:00:28.90 bitrate=N/A speed=5.78x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b30.ts' for writing
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b31.ts' for writing
+frame= 1995 fps=363 q=30.0 size=N/A time=00:00:32.28 bitrate=N/A speed=5.87x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b32.ts' for writing
+frame= 2186 fps=364 q=30.0 size=N/A time=00:00:35.46 bitrate=N/A speed=5.91x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b33.ts' for writing
+frame= 2391 fps=368 q=30.0 size=N/A time=00:00:38.88 bitrate=N/A speed=5.98x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b34.ts' for writing
+frame= 2591 fps=370 q=28.0 size=N/A time=00:00:42.21 bitrate=N/A speed=6.03x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b35.ts' for writing
+frame= 2785 fps=371 q=26.0 size=N/A time=00:00:45.45 bitrate=N/A speed=6.06x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b36.ts' for writing
+frame= 2975 fps=372 q=24.0 size=N/A time=00:00:48.61 bitrate=N/A speed=6.08x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b37.ts' for writing
+frame= 3163 fps=372 q=34.0 size=N/A time=00:00:51.75 bitrate=N/A speed=6.09x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b38.ts' for writing
+frame= 3365 fps=374 q=36.0 size=N/A time=00:00:55.11 bitrate=N/A speed=6.12x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b39.ts' for writing
+frame= 3551 fps=374 q=34.0 size=N/A time=00:00:58.21 bitrate=N/A speed=6.13x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b40.ts' for writing
+frame= 3749 fps=375 q=30.0 size=N/A time=00:01:01.51 bitrate=N/A speed=6.15x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b41.ts' for writing
+frame= 3942 fps=375 q=28.0 size=N/A time=00:01:04.73 bitrate=N/A speed=6.16x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b42.ts' for writing
+frame= 4134 fps=376 q=21.0 size=N/A time=00:01:07.93 bitrate=N/A speed=6.17x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b43.ts' for writing
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b44.ts' for writing
+frame= 4340 fps=377 q=26.0 size=N/A time=00:01:11.36 bitrate=N/A speed= 6.2x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b45.ts' for writing
+frame= 4533 fps=378 q=28.0 size=N/A time=00:01:14.58 bitrate=N/A speed=6.21x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b46.ts' for writing
+frame= 4723 fps=378 q=26.0 size=N/A time=00:01:17.75 bitrate=N/A speed=6.22x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b47.ts' for writing
+frame= 4926 fps=379 q=19.0 size=N/A time=00:01:21.13 bitrate=N/A speed=6.24x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b48.ts' for writing
+frame= 5113 fps=379 q=25.0 size=N/A time=00:01:24.25 bitrate=N/A speed=6.24x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b49.ts' for writing
+frame= 5310 fps=379 q=22.0 size=N/A time=00:01:27.53 bitrate=N/A speed=6.25x    
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b50.ts' for writing
+
+
+[q] command received. Exiting.
+
+[hls @ 0x627b2ae32700] Opening '/config/cache/transcodes/f221a8e3e1841206c66b0c5db1846a0b51.ts' for writing
+[out#0/hls @ 0x627b2ae38140] video:74572KiB audio:1479KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 5530 fps=379 q=27.0 Lsize=N/A time=00:01:31.20 bitrate=N/A speed=6.26x    

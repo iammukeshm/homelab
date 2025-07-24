@@ -1,0 +1,92 @@
+{"Protocol":0,"Id":"25946ad20c7261d665508ce4d641811c","Path":"/mnt/media/songs/8K Remastered - Aaj Ki Raat (Full Song) \uFF5C Tamannaah Bhatia \uFF5C Stree 2.mp4","EncoderPath":null,"EncoderProtocol":null,"Type":0,"Container":"mov,mp4,m4a,3gp,3g2,mj2","Size":1468934551,"Name":"8K Remastered - Aaj Ki Raat (Full Song) \uFF5C Tamannaah Bhatia \uFF5C Stree 2","IsRemote":false,"ETag":"07d66588ef30eca1f7fbdf0a6f3947a3","RunTimeTicks":2675610000,"ReadAtNativeFramerate":false,"IgnoreDts":false,"IgnoreIndex":false,"GenPtsInput":false,"SupportsTranscoding":true,"SupportsDirectStream":true,"SupportsDirectPlay":true,"IsInfiniteStream":false,"UseMostCompatibleTranscodingProfile":false,"RequiresOpening":false,"OpenToken":null,"RequiresClosing":false,"LiveStreamId":null,"BufferMs":null,"RequiresLooping":false,"SupportsProbing":true,"VideoType":0,"IsoType":null,"Video3DFormat":null,"MediaStreams":[{"Codec":"av1","CodecTag":"av01","Language":"und","ColorRange":null,"ColorSpace":"bt709","ColorTransfer":"bt709","ColorPrimaries":"bt709","DvVersionMajor":null,"DvVersionMinor":null,"DvProfile":null,"DvLevel":null,"RpuPresentFlag":null,"ElPresentFlag":null,"BlPresentFlag":null,"DvBlSignalCompatibilityId":null,"Rotation":null,"Comment":null,"TimeBase":"1/15360","CodecTimeBase":null,"Title":null,"VideoRange":1,"VideoRangeType":1,"VideoDoViTitle":null,"AudioSpatialFormat":0,"LocalizedUndefined":null,"LocalizedDefault":null,"LocalizedForced":null,"LocalizedExternal":null,"LocalizedHearingImpaired":null,"DisplayTitle":"8K AV1 SDR","NalLengthSize":null,"IsInterlaced":false,"IsAVC":false,"ChannelLayout":null,"BitRate":43784317,"BitDepth":8,"RefFrames":1,"PacketLength":null,"Channels":null,"SampleRate":null,"IsDefault":true,"IsForced":false,"IsHearingImpaired":false,"Height":4320,"Width":7680,"AverageFrameRate":60,"RealFrameRate":60,"ReferenceFrameRate":60,"Profile":"Main","Type":1,"AspectRatio":"16:9","Index":0,"Score":null,"IsExternal":false,"DeliveryMethod":null,"DeliveryUrl":null,"IsExternalUrl":null,"IsTextSubtitleStream":false,"SupportsExternalStream":false,"Path":null,"PixelFormat":"yuv420p","Level":17,"IsAnamorphic":false},{"Codec":"opus","CodecTag":"Opus","Language":"eng","ColorRange":null,"ColorSpace":null,"ColorTransfer":null,"ColorPrimaries":null,"DvVersionMajor":null,"DvVersionMinor":null,"DvProfile":null,"DvLevel":null,"RpuPresentFlag":null,"ElPresentFlag":null,"BlPresentFlag":null,"DvBlSignalCompatibilityId":null,"Rotation":null,"Comment":null,"TimeBase":"1/48000","CodecTimeBase":null,"Title":null,"VideoRange":0,"VideoRangeType":0,"VideoDoViTitle":null,"AudioSpatialFormat":0,"LocalizedUndefined":null,"LocalizedDefault":"Default","LocalizedForced":null,"LocalizedExternal":"External","LocalizedHearingImpaired":null,"DisplayTitle":"English - OPUS - Stereo - Default","NalLengthSize":null,"IsInterlaced":false,"IsAVC":false,"ChannelLayout":"stereo","BitRate":132258,"BitDepth":null,"RefFrames":null,"PacketLength":null,"Channels":2,"SampleRate":48000,"IsDefault":true,"IsForced":false,"IsHearingImpaired":false,"Height":null,"Width":null,"AverageFrameRate":null,"RealFrameRate":null,"ReferenceFrameRate":null,"Profile":null,"Type":0,"AspectRatio":null,"Index":1,"Score":null,"IsExternal":false,"DeliveryMethod":null,"DeliveryUrl":null,"IsExternalUrl":null,"IsTextSubtitleStream":false,"SupportsExternalStream":false,"Path":null,"PixelFormat":null,"Level":0,"IsAnamorphic":null}],"MediaAttachments":[],"Formats":[],"Bitrate":43920737,"FallbackMaxStreamingBitrate":null,"Timestamp":null,"RequiredHttpHeaders":{},"TranscodingUrl":null,"TranscodingSubProtocol":0,"TranscodingContainer":null,"AnalyzeDurationMs":null,"DefaultAudioStreamIndex":null,"DefaultSubtitleStreamIndex":null,"HasSegments":false}
+
+/usr/lib/jellyfin-ffmpeg/ffmpeg -analyzeduration 200M -probesize 1G -f mov,mp4,m4a,3gp,3g2,mj2 -init_hw_device vaapi=va:/dev/dri/renderD128,driver=iHD -init_hw_device qsv=qs@va -filter_hw_device qs -hwaccel vaapi -hwaccel_output_format vaapi -noautorotate -i file:"/mnt/media/songs/8K Remastered - Aaj Ki Raat (Full Song) ｜ Tamannaah Bhatia ｜ Stree 2.mp4" -noautoscale -map_metadata -1 -map_chapters -1 -threads 0 -map 0:0 -map 0:1 -map -0:s -codec:v:0 h264_qsv -preset veryfast -b:v 6282545 -maxrate 6282545 -bufsize 12565090 -g:v:0 180 -keyint_min:v:0 180 -vf "setparams=color_primaries=bt709:color_trc=bt709:colorspace=bt709,scale_vaapi=w=1280:h=720:format=nv12:extra_hw_frames=24,hwmap=derive_device=qsv,format=qsv" -codec:a:0 libfdk_aac -ac 2 -ab 256000 -copyts -avoid_negative_ts disabled -max_muxing_queue_size 2048 -f hls -max_delay 5000000 -hls_time 3 -hls_segment_type mpegts -start_number 0 -hls_segment_filename "/config/cache/transcodes/4b6b8f018a3152cf5222592a17026db2%d.ts" -hls_playlist_type vod -hls_list_size 0 -y "/config/cache/transcodes/4b6b8f018a3152cf5222592a17026db2.m3u8"
+
+
+ffmpeg version 7.1.1-Jellyfin Copyright (c) 2000-2025 the FFmpeg developers
+  built with gcc 13 (Ubuntu 13.3.0-6ubuntu2~24.04)
+  configuration: --prefix=/usr/lib/jellyfin-ffmpeg --target-os=linux --extra-version=Jellyfin --disable-doc --disable-ffplay --disable-static --disable-libxcb --disable-sdl2 --disable-xlib --enable-lto=auto --enable-gpl --enable-version3 --enable-shared --enable-gmp --enable-gnutls --enable-chromaprint --enable-opencl --enable-libdrm --enable-libxml2 --enable-libass --enable-libfreetype --enable-libfribidi --enable-libfontconfig --enable-libharfbuzz --enable-libbluray --enable-libmp3lame --enable-libopus --enable-libtheora --enable-libvorbis --enable-libopenmpt --enable-libdav1d --enable-libsvtav1 --enable-libwebp --enable-libvpx --enable-libx264 --enable-libx265 --enable-libzvbi --enable-libzimg --enable-libfdk-aac --arch=amd64 --enable-libshaderc --enable-libplacebo --enable-vulkan --enable-vaapi --enable-amf --enable-libvpl --enable-ffnvcodec --enable-cuda --enable-cuda-llvm --enable-cuvid --enable-nvdec --enable-nvenc
+  libavutil      59. 39.100 / 59. 39.100
+  libavcodec     61. 19.101 / 61. 19.101
+  libavformat    61.  7.100 / 61.  7.100
+  libavdevice    61.  3.100 / 61.  3.100
+  libavfilter    10.  4.100 / 10.  4.100
+  libswscale      8.  3.100 /  8.  3.100
+  libswresample   5.  3.100 /  5.  3.100
+  libpostproc    58.  3.100 / 58.  3.100
+libva info: VA-API version 1.22.0
+libva info: Trying to open /usr/lib/jellyfin-ffmpeg/lib/dri/iHD_drv_video.so
+libva info: Found init function __vaDriverInit_1_22
+libva info: va_openDriver() returns 0
+libva info: VA-API version 1.22.0
+libva info: Trying to open /usr/lib/jellyfin-ffmpeg/lib/dri/iHD_drv_video.so
+libva info: Found init function __vaDriverInit_1_22
+libva info: va_openDriver() returns 0
+Input #0, mov,mp4,m4a,3gp,3g2,mj2, from 'file:/mnt/media/songs/8K Remastered - Aaj Ki Raat (Full Song) ｜ Tamannaah Bhatia ｜ Stree 2.mp4':
+  Metadata:
+    major_brand     : isom
+    minor_version   : 512
+    compatible_brands: isomav01iso2mp41
+    encoder         : Lavf59.27.100
+  Duration: 00:04:27.56, start: 0.000000, bitrate: 43920 kb/s
+  Stream #0:0[0x1](und): Video: av1 (libdav1d) (Main) (av01 / 0x31307661), yuv420p(tv, bt709), 7680x4320, 43784 kb/s, 60 fps, 60 tbr, 15360 tbn (default)
+      Metadata:
+        handler_name    : ISO Media file produced by Google Inc.
+        vendor_id       : [0][0][0][0]
+  Stream #0:1[0x2](eng): Audio: opus (Opus / 0x7375704F), 48000 Hz, stereo, fltp, 132 kb/s (default)
+      Metadata:
+        handler_name    : SoundHandler
+        vendor_id       : [0][0][0][0]
+Stream mapping:
+  Stream #0:0 -> #0:0 (av1 (native) -> h264 (h264_qsv))
+  Stream #0:1 -> #0:1 (opus (native) -> aac (libfdk_aac))
+Press [q] to stop, [?] for help
+Output #0, hls, to '/config/cache/transcodes/4b6b8f018a3152cf5222592a17026db2.m3u8':
+  Metadata:
+    encoder         : Lavf61.7.100
+  Stream #0:0: Video: h264, qsv(tv, bt709, progressive), 1280x720 [SAR 1:1 DAR 16:9], q=2-31, 6282 kb/s, 60 fps, 90k tbn (default)
+      Metadata:
+        encoder         : Lavc61.19.101 h264_qsv
+      Side data:
+        cpb: bitrate max/min/avg: 6282545/0/6282545 buffer size: 12565090 vbv_delay: N/A
+  Stream #0:1: Audio: aac, 48000 Hz, stereo, s16, 256 kb/s (default)
+      Metadata:
+        encoder         : Lavc61.19.101 libfdk_aac
+      Side data:
+        cpb: bitrate max/min/avg: 256000/256000/256000 buffer size: 0 vbv_delay: N/A
+frame=    6 fps=0.0 q=24.0 size=N/A time=00:00:00.00 bitrate=N/A speed=   0x    
+frame=   57 fps= 57 q=22.0 size=N/A time=00:00:00.85 bitrate=N/A speed=0.848x    
+frame=   97 fps= 64 q=21.0 size=N/A time=00:00:01.51 bitrate=N/A speed=1.01x    
+frame=  141 fps= 70 q=25.0 size=N/A time=00:00:02.25 bitrate=N/A speed=1.12x    
+[hls @ 0x6054d45d7d40] Opening '/config/cache/transcodes/4b6b8f018a3152cf5222592a17026db20.ts' for writing
+frame=  185 fps= 74 q=25.0 size=N/A time=00:00:02.98 bitrate=N/A speed=1.19x    
+frame=  229 fps= 76 q=25.0 size=N/A time=00:00:03.71 bitrate=N/A speed=1.24x    
+frame=  273 fps= 78 q=25.0 size=N/A time=00:00:04.45 bitrate=N/A speed=1.27x    
+frame=  313 fps= 78 q=25.0 size=N/A time=00:00:05.11 bitrate=N/A speed=1.28x    
+[hls @ 0x6054d45d7d40] Opening '/config/cache/transcodes/4b6b8f018a3152cf5222592a17026db21.ts' for writing
+frame=  361 fps= 80 q=20.0 size=N/A time=00:00:05.91 bitrate=N/A speed=1.31x    
+frame=  413 fps= 82 q=24.0 size=N/A time=00:00:06.78 bitrate=N/A speed=1.35x    
+frame=  465 fps= 84 q=23.0 size=N/A time=00:00:07.65 bitrate=N/A speed=1.39x    
+frame=  520 fps= 87 q=26.0 size=N/A time=00:00:08.56 bitrate=N/A speed=1.43x    
+[hls @ 0x6054d45d7d40] Opening '/config/cache/transcodes/4b6b8f018a3152cf5222592a17026db22.ts' for writing
+frame=  569 fps= 87 q=24.0 size=N/A time=00:00:09.38 bitrate=N/A speed=1.44x    
+frame=  620 fps= 88 q=24.0 size=N/A time=00:00:10.23 bitrate=N/A speed=1.46x    
+frame=  674 fps= 90 q=16.0 size=N/A time=00:00:11.13 bitrate=N/A speed=1.48x    
+[hls @ 0x6054d45d7d40] Opening '/config/cache/transcodes/4b6b8f018a3152cf5222592a17026db23.ts' for writing
+frame=  733 fps= 92 q=22.0 size=N/A time=00:00:12.11 bitrate=N/A speed=1.51x    
+frame=  789 fps= 93 q=22.0 size=N/A time=00:00:13.05 bitrate=N/A speed=1.53x    
+frame=  841 fps= 93 q=22.0 size=N/A time=00:00:13.91 bitrate=N/A speed=1.54x    
+frame=  897 fps= 94 q=25.0 size=N/A time=00:00:14.85 bitrate=N/A speed=1.56x    
+[hls @ 0x6054d45d7d40] Opening '/config/cache/transcodes/4b6b8f018a3152cf5222592a17026db24.ts' for writing
+frame=  949 fps= 95 q=25.0 size=N/A time=00:00:15.71 bitrate=N/A speed=1.57x    
+frame= 1001 fps= 95 q=24.0 size=N/A time=00:00:16.58 bitrate=N/A speed=1.58x    
+frame= 1053 fps= 96 q=24.0 size=N/A time=00:00:17.45 bitrate=N/A speed=1.59x    
+[hls @ 0x6054d45d7d40] Opening '/config/cache/transcodes/4b6b8f018a3152cf5222592a17026db25.ts' for writing
+frame= 1105 fps= 96 q=23.0 size=N/A time=00:00:18.31 bitrate=N/A speed=1.59x    
+frame= 1155 fps= 96 q=24.0 size=N/A time=00:00:19.15 bitrate=N/A speed=1.59x    
+
+[q] command received. Exiting.
+
+[hls @ 0x6054d45d7d40] Opening '/config/cache/transcodes/4b6b8f018a3152cf5222592a17026db26.ts' for writing
+[out#0/hls @ 0x6054d45d8f80] video:15971KiB audio:639KiB subtitle:0KiB other streams:0KiB global headers:0KiB muxing overhead: unknown
+frame= 1226 fps= 97 q=21.0 Lsize=N/A time=00:00:20.33 bitrate=N/A speed= 1.6x    
