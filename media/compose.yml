@@ -4,7 +4,8 @@ services:
     image: alpine
     command: sleep infinity
     networks:
-      - media-network
+      media-network:
+        ipv4_address: 172.39.0.10
 networks:
   media-network:
     name: media-network
