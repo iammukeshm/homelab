@@ -21,7 +21,8 @@ services:
       timeout: 10s
       retries: 3
     networks:
-      - media-network
+      media-network:
+        ipv4_address: 172.39.0.2
       
 networks:
   media-network:
