@@ -34,6 +34,7 @@ services:
       - ES_URL=http://tube-archivist-es:9200
       - REDIS=redis://tube-archivist-redis:6379
       - ELASTIC_PASSWORD=changeme
+      - TA_HOST=http://100.70.85.92:8000
 
     volumes:
       - tube_data:/cache
