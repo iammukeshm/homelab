@@ -86,6 +86,34 @@ services:
       media-network:
         ipv4_address: 172.39.0.7
 
+  youtubarr:
+      environment: 
+          ytdl_mongodb_connection_string: 'mongodb://youtubarr-db:27017'
+          ytdl_use_local_db: 'false'
+          write_ytdl_config: 'true'
+      restart: always
+      depends_on:
+          - youtubarr-db
+      volumes:
+          - ./appdata:/app/appdata
+          - /mnt/media/youtube:/app/audio
+          - /mnt/media/youtube:/app/video
+          - ./subscriptions:/app/subscriptions
+          - ./users:/app/users
+      ports:
+          - "8998:17442"
+      image: tzahi12345/youtubedl-material:latest
+      container_name: youtubarr
+  youtubarr-db:
+      # If you are using a Raspberry Pi, use mongo:4.4.18
+      image: mongo:4
+      logging:
+          driver: "none"          
+      container_name: youtubarr-db
+      restart: always
+      volumes:
+          - ./db/:/data/db
+
 networks:
   media-network:
     external: true
