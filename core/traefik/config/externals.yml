@@ -14,12 +14,23 @@ http:
       tls:
         certResolver: cloudflare
       service: torrent
+    plex:
+      rule: "Host(`plex.jarvs.dev`)"
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: cloudflare
+      service: plex
 
   services:
     jellyfin:
       loadBalancer:
         servers:
           - url: "http://192.168.1.210:8096"    # Media VM IP and port
+    plex:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.210:32400"    # Media VM IP and port
     torrent:
       loadBalancer:
         servers:
