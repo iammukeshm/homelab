@@ -1,0 +1,26 @@
+http:
+  routers:
+    jellyfin:
+      rule: "Host(`jellyfin.jarvs.dev`)"
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: cloudflare
+      service: jellyfin
+    torrent:
+      rule: "Host(`torrent.jarvs.dev`)"
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: cloudflare
+      service: torrent
+
+  services:
+    jellyfin:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.210:8096"    # Media VM IP and port
+    torrent:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.210:8080"    # Media VM IP and port

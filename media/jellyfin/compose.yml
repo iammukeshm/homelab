@@ -16,6 +16,12 @@ services:
       - 7359:7359/udp #Service Discovery
       - 1900:1900/udp #Client Discovery
     restart: unless-stopped
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.jellyfin.rule=Host(`jellyfin.jarvs.dev`)"
+      - "traefik.http.routers.jellyfin.entrypoints=websecure"
+      - "traefik.http.routers.jellyfin.tls.certresolver=cloudflare"
+      - "traefik.http.services.jellyfin.loadbalancer.server.port=8086"
 
   jellyseerr:
     container_name: jellyseerr
