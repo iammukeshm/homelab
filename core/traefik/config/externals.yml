@@ -21,6 +21,13 @@ http:
       tls:
         certResolver: cloudflare
       service: plex
+    proxmox:
+      rule: "Host(`proxmox.jarvs.dev`)"
+      entryPoints:
+        - websecure
+      tls:
+        certResolver: cloudflare
+      service: proxmox
 
   services:
     jellyfin:
@@ -35,3 +42,7 @@ http:
       loadBalancer:
         servers:
           - url: "http://192.168.1.210:8080"    # Media VM IP and port
+    proxmox:
+      loadBalancer:
+        servers:
+          - url: "http://192.168.1.10:8006"    # Media VM IP and port
